@@ -1,0 +1,1699 @@
+{
+	"info": {
+		"_postman_id": "519a3c82-f31f-4bd9-aa21-a6663ae5fb7a",
+		"name": "NodeJS Project (Blog Server)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51418842",
+		"_collection_link": "https://elsayedmohamed-iti-7318366.postman.co/workspace/Elsayed-Mohamed's-Workspace~b9f90cef-09d2-47e0-8bb8-332d4155d0fc/collection/51418842-519a3c82-f31f-4bd9-aa21-a6663ae5fb7a?action=share&source=collection_link&creator=51418842"
+	},
+	"item": [
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Create Comment",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"This is a comment\",\n  \"postId\": \"697eb0c1706eb8ce877fb189\"\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}/comments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Nested Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"I agree with you\",\n    \"postId\": \"697c11bc43a03ef5f6ad77e9\",\n    \"parentCommentId\": \"697d3684be86489a77a65ba5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/comments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"This is a comment\",\n  \"postId\": \"697c11bc43a03ef5f6ad77e9\"\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}/comments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Comments Filtered By Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/comments?postId=697c11bc43a03ef5f6ad77e9",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "697c11bc43a03ef5f6ad77e9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"This is a comment\",\n  \"postId\": \"697c11bc43a03ef5f6ad77e9\"\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}/comments/697e98d08faf3f5048c814e8",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments",
+								"697e98d08faf3f5048c814e8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"Updated comment text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/comments/697d411b90e408c404ae6418",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments",
+								"697d411b90e408c404ae6418"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/comments/697d411b90e408c404ae6418",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comments",
+								"697d411b90e408c404ae6418"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "Toggle Like On Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targetType\": \"Post\",\n    \"targetId\": \"69865abab287778406f531c3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/likes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Like On Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targetType\": \"Comment\",\n    \"targetId\": \"697e98d08faf3f5048c814e8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/likes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Likes Count For Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/likes/count?targetType=Post&targetId=697d150e2ffca625e0c5454c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"likes",
+								"count"
+							],
+							"query": [
+								{
+									"key": "targetType",
+									"value": "Post"
+								},
+								{
+									"key": "targetId",
+									"value": "697d150e2ffca625e0c5454c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Likes Count For Comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/likes/count?targetType=Comment&targetId=697d3bb1483cbfcc1adeaaa4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"likes",
+								"count"
+							],
+							"query": [
+								{
+									"key": "targetType",
+									"value": "Comment"
+								},
+								{
+									"key": "targetId",
+									"value": "697d3bb1483cbfcc1adeaaa4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check if user liked a post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/likes/check?targetType=Post&targetId=697d150e2ffca625e0c5454c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"likes",
+								"check"
+							],
+							"query": [
+								{
+									"key": "targetType",
+									"value": "Post"
+								},
+								{
+									"key": "targetId",
+									"value": "697d150e2ffca625e0c5454c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check if user liked a comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/likes/check?targetType=Comment&targetId=697d3bb1483cbfcc1adeaaa4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"likes",
+								"check"
+							],
+							"query": [
+								{
+									"key": "targetType",
+									"value": "Comment"
+								},
+								{
+									"key": "targetId",
+									"value": "697d3bb1483cbfcc1adeaaa4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Follow",
+			"item": [
+				{
+					"name": "Follow a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/follow/users/69811c8c932ba1d0721b8090/follow",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"follow",
+								"users",
+								"69811c8c932ba1d0721b8090",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user followers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/follow/users/697d3d69483cbfcc1adeaac4/followers",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"follow",
+								"users",
+								"697d3d69483cbfcc1adeaac4",
+								"followers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Following",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/follow/users/697eab8c09cbcbeed128eecc/following",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"follow",
+								"users",
+								"697eab8c09cbcbeed128eecc",
+								"following"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/follow/users/697d3d69483cbfcc1adeaac4/follow",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"follow",
+								"users",
+								"697d3d69483cbfcc1adeaac4",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "SignUp User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"sayed\",\n    \"email\": \"mohamed@gmail.com\",\n    \"password\": \"ahmed12345\",\n    \"repeatPassword\": \"ahmed12345\",\n    \"age\": 18\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/users/sign-up",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"sign-up"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SignIn User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Parse response JSON",
+											"const jsonData = pm.response.json();",
+											"",
+											"// Save JWT in environment variable",
+											"pm.environment.set(\"jwt\", jsonData.data.token);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"elsayedfarg792003@gmail.com\",\n    \"password\": \"sayednewpass123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/users/sign-in",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"sign-in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"elsayedfarg792003@gmail.com\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/users/forgot-password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"7ca06371b594272ba72588a3b476325036952fe5057232ebdf791c8e11b8ee10\",\n    \"newPassword\": \"sayednewpass123\",\n    \"confirmPassword\": \"sayednewpass123\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/users/reset-password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"currentPassword\": \"sayednewpass123\",\n    \"newPassword\": \"mynewpassword123\",\n    \"confirmPassword\": \"mynewpassword123\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/users/change-password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Upload Profile Picture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/users/profile-picture",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"profile-picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile Picture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/profile-picture",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"profile-picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users?page=1&limit=5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/697eab8c09cbcbeed128eecc",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"697eab8c09cbcbeed128eecc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/697b7c55ececbd67dac54689",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"697b7c55ececbd67dac54689"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":30\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/697b7c55ececbd67dac54689",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"697b7c55ececbd67dac54689"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Likes By User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/697d3d69483cbfcc1adeaac4/likes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"697d3d69483cbfcc1adeaac4",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/search?email=new@gmail.com&name=ahmed",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "new@gmail.com"
+								},
+								{
+									"key": "name",
+									"value": "ahmed"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user bookmarks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/bookmarks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Post with image\",\n  \"content\": \"Express makes building APIs simple and fun.\",\n  \"author\": \"Jane Smith\",\n  \"tags\": [\"nodejs\", \"express\", \"backend\"],\n  \"published\": true,\n  \"userId\":\"697c10b12b886bc747f9ef90\"\n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/posts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts?page=1&limit=5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/697e989a8faf3f5048c814df",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697e989a8faf3f5048c814df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comments By Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/697c11bc43a03ef5f6ad77e9/comments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697c11bc43a03ef5f6ad77e9",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Post Title\",\n  \"content\": \"This is the updated content of the post.\",\n  \"tags\": [\"update\", \"express\", \"mongoose\"],\n  \"published\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/posts/697c12152fca7af760553683",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697c12152fca7af760553683"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Post Title\",\n  \"content\": \"This is the updated content of the post.\",\n  \"author\": \"Updated Author\",\n  \"tags\": [\"update\", \"express\", \"mongoose\"],\n  \"published\": true\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/posts/697c12152fca7af760553683",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697c12152fca7af760553683"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Images To Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/home/sayedmohamed/Downloads/download.jpeg",
+										"/home/sayedmohamed/Downloads/download (1).jpeg",
+										"/home/sayedmohamed/Downloads/download (2).jpeg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/posts/697eca323d752d94890ab5c5/images",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697eca323d752d94890ab5c5",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/697eca323d752d94890ab5c5/images/697ecab35c7cd75eb82cf022",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697eca323d752d94890ab5c5",
+								"images",
+								"697ecab35c7cd75eb82cf022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/search?q=Learning&from=2024-01-01",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Learning"
+								},
+								{
+									"key": "from",
+									"value": "2024-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user's draft posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/drafts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"drafts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish draft post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/posts/6983cca86c8c61929e179a75/publish",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"6983cca86c8c61929e179a75",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Schedule post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"publishedAt\": \"2026-02-07T12:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/posts/6983cca86c8c61929e179a75/schedule",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"6983cca86c8c61929e179a75",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Increment post view",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/697eca323d752d94890ab5c5/view",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697eca323d752d94890ab5c5",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bookmark a post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/697e989a8faf3f5048c814df/bookmark",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697e989a8faf3f5048c814df",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove bookmark",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/697e989a8faf3f5048c814df/bookmark",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"697e989a8faf3f5048c814df",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Get user notifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/notifications",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark as read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/notifications/69865b01b287778406f531ce/read",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"notifications",
+								"69865b01b287778406f531ce",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark all as read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/notifications/read-all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"notifications",
+								"read-all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
