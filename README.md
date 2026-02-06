@@ -117,8 +117,30 @@ npm install
 npm run dev
 ```
 
+### 4. Setup Environment Variables
 
-API Testing with Postman
+This project requires a `config.env` file for configuration. To set it up:
+
+1. Copy the example file:
+
+```bash
+cp config.env.example config.env
+```
+2. Open config.env and fill in your values:
+
+MONGO_URI – your MongoDB connection string
+
+JWT_SECRET – a secret string for JWT authentication
+
+SMTP_* – your email SMTP settings
+
+IMAGEKIT_* – your ImageKit keys
+
+FRONTEND_URL – the URL of your frontend (if applicable)
+
+Make sure this file is in the root of your project before running the server.
+
+### 5. API Testing with Postman
 
 This project includes Postman files for testing all endpoints.
 
