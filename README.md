@@ -1107,6 +1107,16 @@ Future enhancements planned:
 
 ---
 
+## 📸 Screenshots
+<img width="1173" height="667" alt="Screenshot from 2026-04-06 15-18-10-1" src="https://github.com/user-attachments/assets/c4b8e8f1-25cb-4d65-80c4-8731a7db5c8e" />
+<img width="1489" height="642" alt="Screenshot from 2026-04-06 15-17-35" src="https://github.com/user-attachments/assets/541ed05c-b329-4edc-8e4d-855bb30d1636" />
+<img width="1457" height="481" alt="Screenshot from 2026-04-06 15-17-46" src="https://github.com/user-attachments/assets/de97248d-d24e-4938-96be-a66ffe59dfc9" />
+<img width="1185" height="715" alt="Screenshot from 2026-04-06 15-18-03" src="https://github.com/user-attachments/assets/7e588336-d03c-4d61-aae0-074b8224e234" />
+<img width="1173" height="667" alt="Screenshot from 2026-04-06 15-18-10" src="https://github.com/user-attachments/assets/24fdcbc3-6af6-4152-9b53-b68dc58857ed" />
+
+
+---
+
 **Happy Coding! 🚀**
 
 ---
